@@ -1,6 +1,6 @@
 module.exports = app => {
 
-    app.directive("eventdetail", ['eventService', function (eventService) {
+    app.directive("eventdetail", function () {
         return {
             restrict: 'E',
             templateUrl: 'directives/eventDetail/template.html',
@@ -39,10 +39,8 @@ module.exports = app => {
                     },
                     close: $scope.close
                 };
-
-
             }
         };
-    }]);
+    });
 
 };

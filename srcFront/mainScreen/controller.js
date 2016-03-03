@@ -1,12 +1,10 @@
 module.exports = app => {
 
-    const _ = require('lodash');
-
     app.controller('main:controller', ['$scope', 'eventService', ($scope, eventService) => {
 
         $scope.model = {
             thread: [],
-            opendedEvent: null,
+            openedEvent: null,
             search: ''
         };
 

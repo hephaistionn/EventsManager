@@ -1,7 +1,5 @@
 module.exports = app => {
 
-    const _ = require('lodash');
-
     app.service('eventService', ['apiService', function (apiService) {
 
         /**
@@ -70,13 +68,10 @@ module.exports = app => {
          */
         this.getEvents = () => {
             return apiService.getEvents().then(function (events) {
-                console.log('succes request');
                 events.map(event => {
                     event.date = new Date(event.date);
                 });
                 return events;
-            }, function (data) {
-                console.log('bad request');
             });
         };
 
