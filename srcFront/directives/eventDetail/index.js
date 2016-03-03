@@ -35,7 +35,7 @@ module.exports = app => {
                         } else if (!$scope.event.picture) {
                             $scope.model.warning = "need picture !";
                             return;
-                        } else if ($scope.event.date < new Date()) {
+                        } else if (!$scope.event.date) {
                             $scope.model.warning = "past time !";
                             return;
                         }

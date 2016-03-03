@@ -8,7 +8,7 @@ module.exports = (app) => {
     router.get('/events', function(req, res) {
         Event.find(function(err, event) {
             if (err)
-                res.send(err);
+                res.status(500).send(err);
 
             res.json(event);
         });
@@ -19,7 +19,7 @@ module.exports = (app) => {
         const params = req.body;
 
         if(!params.id || !params.title || !params.picture || !params.description || !params.date ){
-            res.json({ message: 'Bad params' });
+            res.status(500).send({ error: 'Bad params' + JSON.stringify(params) });
             return;
         }
 
@@ -30,7 +30,7 @@ module.exports = (app) => {
         event.date = params.date;
         event.save(function(err) {
             if (err)
-                res.send(err);
+                res.status(500).send(err);
             res.json({ message: 'Event created!' });
         });
     });
@@ -38,7 +38,7 @@ module.exports = (app) => {
     router.get('/events/:id', function(req, res) {
             Event.findOne({id: req.params.id}, function(err, event) {
                 if (err)
-                    res.send(err);
+                    res.status(500).send(err);
                 res.json(event);
             });
         });
@@ -48,11 +48,11 @@ module.exports = (app) => {
             Event.findOne({id: req.params.id}, function(err, event) {
 
                 if (err)
-                    res.send(err);
+                    res.status(500).send(err);
 
                 const params = req.body;
                 if(!params.title || !params.picture || !params.description || !params.date ){
-                    res.json({ message: 'Bad params' });
+                    res.status(500).send({ error: 'Bad params' + JSON.stringify(params) });
                     return;
                 }
                 event.title = params.title;
@@ -61,7 +61,7 @@ module.exports = (app) => {
                 event.date = params.date;
                 event.save(function(err) {
                     if (err)
-                        res.send(err);
+                        res.status(500).send(err);
                     res.json({ message: 'Event updated!' });
                 });
 
@@ -73,7 +73,7 @@ module.exports = (app) => {
             id: req.params.event_id
         }, function(err, event) {
             if (err)
-                res.send(err);
+                res.status(500).send(err);
 
             res.json({ message: 'Successfully deleted' });
         });

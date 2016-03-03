@@ -9,7 +9,7 @@ module.exports = app => {
          * @param {String} description
          * @param {Date} date
          * @param {String} picture
-         * 
+         *
          * @returns {Promise}
          */
         this.addEvent = (title, description, date, picture) => {
@@ -25,7 +25,7 @@ module.exports = app => {
         this.prepareEvent = () => {
             return {
                 title: '',
-                desc: '',
+                description: '',
                 date: new Date(),
                 picture: ''
             };
