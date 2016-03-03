@@ -74,7 +74,7 @@ module.exports = app => {
                     return;
                 }
                 /** event unregistered*/
-                $scope.model.thread = eventService.addEvent(
+                eventService.addEvent(
                     event.title,
                     event.description,
                     event.date,
