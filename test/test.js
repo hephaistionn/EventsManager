@@ -41,12 +41,21 @@ describe('Protractor Demo App', function() {
          expect(modal.isPresent()).toBe(false);
     });
 
-    it('should display new event', function() {
+    it('should display new event', function(cb) {
         thread = element(by.css('.thread'));
         var events = thread.all(by.css('.panel-primary'));
-        var event = events.get(0);
-        var eventTitle = event.element(by.tagName('h1'));
-        expect(eventTitle.getText()).toEqual('titleA');
+
+        var titles = '';
+        events.each(event => {
+            var eventTitle = event.element(by.tagName('h1'));
+            return eventTitle.getText().then(function (text) {
+                titles += text;
+            });
+        });
+        setTimeout(() =>{
+            expect(titles).not.toEqual(-1);
+            cb()
+        }, 500);
     });
 
     it('should remove new event', function() {
@@ -54,13 +63,14 @@ describe('Protractor Demo App', function() {
         var events = thread.all(by.css('.panel-primary'));
         var event = events.get(0);
         var closeButton = event.element(by.tagName('button'));
+        var eventTitle = event.element(by.tagName('h1'));
+        expect(eventTitle.getText()).toEqual('titleA');
         closeButton.click();
         events = thread.all(by.css('.panel-primary'));
         events.each(event => {
             var eventTitle = event.element(by.tagName('h1'));
             expect(eventTitle.getText()).not.toEqual('titleA');
         });
-
     });
 
 });
