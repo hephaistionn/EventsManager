@@ -2,12 +2,12 @@
 
     <div class="panel-heading">
         <h3 class="panel-title">{{event.title}}</h3>
-         :
+        :
         <span class="" ng-bind="event.date | date:'d-MMMM-yyyy'"></span>
         <button class=" close pull-right" ng-click="remove(event.id)"><span aria-hidden="true">x</span></button>
     </div>
 
-    <div class="panel-body clickable"  ng-click="open(event.id)">
+    <div class="panel-body clickable" ng-click="open(event.id)">
         <div class="row">
             <img class="img-rounded pull-left" ng-src="{{event.picture}}">
             <h1 class="title">{{event.title}}</h1>

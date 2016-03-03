@@ -12,35 +12,35 @@ module.exports = app => {
 
         $scope.actions = {
             updateList: () => {
-                eventService.getEvents().then( (events) => {
+                eventService.getEvents().then((events) => {
                     $scope.model.thread = events;
                 });
             },
             newEvent: ()=> {
                 $scope.model.openedEvent = eventService.prepareEvent();
             },
-            openEvent: (id)=>{
-                eventService.getEvent(id).then((event)=>{
+            openEvent: (id)=> {
+                eventService.getEvent(id).then((event)=> {
                     $scope.model.openedEvent = event;
                 });
             },
-            closeEvent: ()=>{
+            closeEvent: ()=> {
                 $scope.model.openedEvent = null;
             },
             removeEvent: (id)=> {
-                eventService.removeEvent(id).then(()=>{
+                eventService.removeEvent(id).then(()=> {
                     $scope.actions.updateList();
                 });
             },
             saveEvent: () => {
-                if($scope.model.openedEvent.id) {
+                if ($scope.model.openedEvent.id) {
                     eventService.updateEvent(
                         $scope.model.openedEvent.id,
                         $scope.model.openedEvent.title,
                         $scope.model.openedEvent.description,
                         $scope.model.openedEvent.date,
                         $scope.model.openedEvent.picture
-                    ).then(()=>{
+                    ).then(()=> {
                             $scope.actions.updateList();
                         });
                     return;
@@ -50,7 +50,7 @@ module.exports = app => {
                     $scope.model.openedEvent.description,
                     $scope.model.openedEvent.date,
                     $scope.model.openedEvent.picture
-                ).then(()=>{
+                ).then(()=> {
                         $scope.actions.updateList();
                     });
             }

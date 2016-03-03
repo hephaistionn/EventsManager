@@ -1,4 +1,4 @@
-# ChatSimulator
+# EventManager
 This app is a events managers.
 
 # Tech

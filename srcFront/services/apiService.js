@@ -3,7 +3,7 @@ module.exports = app => {
     app.service('apiService', ['$http', function ($http) {
 
         this.getEvents = () => {
-            return $http.get('api/events').then((response)=>{
+            return $http.get('api/events').then((response)=> {
                 return response.data;
             });
         };
@@ -19,7 +19,7 @@ module.exports = app => {
         };
 
         this.getEvent = (id) => {
-            return $http.get('api/events/' + id).then((response)=>{
+            return $http.get('api/events/' + id).then((response)=> {
                 return response.data;
             });
         };
