@@ -6,6 +6,8 @@ module.exports = app => {
 
             /** sort by date */
 
+            console.log(input)
+
             input.sort((a, b)=> {
                 return (a.date > b.date ? 1 : -1);
             });
