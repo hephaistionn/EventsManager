@@ -15,9 +15,16 @@ module.exports = app => {
                 };
 
                 $scope.actions = {
+                    /**
+                     * Action to switch in edit mode
+                     */
                     edit: () => {
                         $scope.model.editing = true;
                     },
+
+                    /**
+                     * Action to save the current event displayed
+                     */
                     save: () => {
                         if (!$scope.event.title) {
                             $scope.model.warning = "need title !";
@@ -35,7 +42,7 @@ module.exports = app => {
                         $scope.model.warning = "";
 
                         $scope.model.editing = false;
-                        $scope.save();
+                        $scope.save($scope.event);
                     },
                     close: $scope.close
                 };
