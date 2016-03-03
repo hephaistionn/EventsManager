@@ -1,5 +1,30 @@
 
-img {
-  width: 200px;
-  height: 150px;
+.thread {
+  .panel-title {
+    display: inline-block;
+  }
+
+  .title {
+    line-height: 80px;
+    margin: 0 0 0 20px;
+    display: inline-block;
+  }
+  img {
+    max-height: 80px;
+    margin-left: 20px;
+  }
+
+  .close {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+  }
+
+  .clickable {
+    cursor: pointer;
+  }
 }

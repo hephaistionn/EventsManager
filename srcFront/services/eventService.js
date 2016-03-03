@@ -7,19 +7,19 @@ module.exports = app => {
         /**
          * save new event
          * @param {String} title
-         * @param {String} desc
+         * @param {String} description
          * @param {Date} date
          * @param {String} picture
          */
-        this.addEvent = (title, desc, date, picture) => {
+        this.addEvent = (title, description, date, picture) => {
             const id = Math.round(new Date().getUTCMilliseconds() * Math.random());
-            return apiService.postEvent(id, title, desc, date, picture);
+            return apiService.postEvent(id, title, description, date, picture);
         };
 
         /**
          * Create new event
          * @param {String} title
-         * @param {String} desc
+         * @param {String} description
          * @param {Date} date
          * @param {String} picture
          */
@@ -44,12 +44,12 @@ module.exports = app => {
          * Edit existing event
          * @param {String} id
          * @param {String=} title
-         * @param {String=} desc
+         * @param {String=} description
          * @param {Date=} date
          * @param {String=} picture
          */
-        this.updateEvent = (id, title, desc, date, picture) => {
-            return apiService.putEvent(id, title, desc, date, picture);
+        this.updateEvent = (id, title, description, date, picture) => {
+            return apiService.putEvent(id, title, description, date, picture);
         };
 
         /**
@@ -69,7 +69,6 @@ module.exports = app => {
          * @returns {Promise}
          */
         this.getEvents = () => {
-
             return apiService.getEvents().then(function(events){
                 console.log('succes request');
                 events.map(event =>{

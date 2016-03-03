@@ -11,7 +11,7 @@ const uglify = require('gulp-uglify');
 const es6ify = require('es6ify');
 
 const config = {
-  entriesSass: './srcFront/style.scss',
+  entriesSass: ['./srcFront/style.scss'],
   output: './dist',
   browserifyOptions: {entries: ['./srcFront/app.js'], debug: true},
   babelifyOptions: {presets: ['es2015']}
@@ -70,10 +70,15 @@ gulp.task('partial-copy', function() {
       .pipe(gulp.dest(config.output));
 });
 
+gulp.task('bootstrap-copy', function() {
+  gulp.src(['./node_modules/bootstrap/dist/**/*'])
+      .pipe(gulp.dest(config.output));
+});
+
 /**
  * build
  */
-gulp.task('build',['build-js', 'build-css']);
+gulp.task('build',['build-js', 'build-css', 'bootstrap-copy']);
 
 /**
  * watch updates

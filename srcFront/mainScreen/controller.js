@@ -37,7 +37,7 @@ module.exports = app => {
                     eventService.updateEvent(
                         $scope.model.openedEvent.id,
                         $scope.model.openedEvent.title,
-                        $scope.model.openedEvent.desc,
+                        $scope.model.openedEvent.description,
                         $scope.model.openedEvent.date,
                         $scope.model.openedEvent.picture
                     ).then(()=>{
@@ -47,7 +47,7 @@ module.exports = app => {
                 }
                 $scope.model.thread = eventService.addEvent(
                     $scope.model.openedEvent.title,
-                    $scope.model.openedEvent.desc,
+                    $scope.model.openedEvent.description,
                     $scope.model.openedEvent.date,
                     $scope.model.openedEvent.picture
                 ).then(()=>{

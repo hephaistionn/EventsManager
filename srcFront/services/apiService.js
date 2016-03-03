@@ -8,11 +8,11 @@ module.exports = app => {
             });
         };
 
-        this.postEvent = (id, title, desc, date, picture) => {
+        this.postEvent = (id, title, description, date, picture) => {
             return $http.post('api/events', {
                 id: id,
                 title: title,
-                description: desc,
+                description: description,
                 date: date,
                 picture: picture
             });
@@ -24,10 +24,10 @@ module.exports = app => {
             });
         };
 
-        this.putEvent = (id, title, desc, date, picture) => {
+        this.putEvent = (id, title, description, date, picture) => {
             return $http.put('api/events/' + id, {
                 title: title,
-                description: desc,
+                description: description,
                 date: date,
                 picture: picture
             });

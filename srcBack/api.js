@@ -18,9 +18,6 @@ module.exports = (app) => {
 
         const params = req.body;
 
-        console.log("router.post('/events'");
-        console.log(params);
-
         if(!params.id || !params.title || !params.picture || !params.description || !params.date ){
             res.json({ message: 'Bad params' });
             return;
@@ -30,7 +27,6 @@ module.exports = (app) => {
         event.id = params.id;
         event.title = params.title;
         event.picture = params.picture;
-        event.description = params.description;
         event.date = params.date;
         event.save(function(err) {
             if (err)
@@ -55,7 +51,6 @@ module.exports = (app) => {
                     res.send(err);
 
                 const params = req.body;
-                console.log(params);
                 if(!params.title || !params.picture || !params.description || !params.date ){
                     res.json({ message: 'Bad params' });
                     return;

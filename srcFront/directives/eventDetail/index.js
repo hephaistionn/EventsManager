@@ -10,7 +10,8 @@ module.exports = app => {
 
                 $scope.model = {
                     event: $scope.event,
-                    editing: $scope.event.id===undefined
+                    editing: $scope.event.id===undefined,
+                    warning: ""
                 };
 
                 $scope.actions = {
@@ -18,8 +19,22 @@ module.exports = app => {
                         $scope.model.editing = true;
                     },
                     save: () => {
+                        if(!$scope.model.title) {
+                            $scope.model.warning = "need title !";
+                            return;
+                        }else if(!$scope.model.description) {
+                            $scope.model.warning = "need description !";
+                            return;
+                        }else if(!$scope.model.picture) {
+                            $scope.model.warning = "need picture !";
+                            return;
+                        }
+                        $scope.model.warning = "";
+
                         $scope.model.editing = false;
                         $scope.save();
+
+
                     },
                     close: $scope.close
                 };

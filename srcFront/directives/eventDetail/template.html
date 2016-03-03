@@ -1,21 +1,55 @@
-<div ng-class="['eventDetail', model.event.id]" >
+<div ng-class="['myModal', model.event.id]" >
+    <div class="modal-dialog">
+        <div class="modal-content" ng-if="!model.editing" >
+            <div class="modal-header">
+                <h4 class="modal-title">Event Details</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <img class="img-rounded pull-left" ng-src="{{event.picture}}">
+                    <div class="row">
+                    <h1 class="title">{{model.event.title}}</h1>
+                        <span class="date" ng-bind="event.date | date:'d-MMMM-yyyy'"></span>
+                        <p  class="desc">{{model.event.description}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button ng-click="actions.close()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button ng-click="actions.edit()" type="button" class="btn btn-primary">Edit Event</button>
+            </div>
 
-    <div ng-if="!model.editing" >
-        <h2>{{model.event.title}}</h2>
-        <span class="date" ng-bind="event.date | date:'d-MMMM-yyyy'"></span>
-        <img ng-src="{{model.event.picture}}">
-        <div  class="desc">{{model.event.desc}}</div>
-        <div ng-click="actions.edit()" class="edit">edit</div>
+
+
+        </div>
+
+        <div class="modal-content" ng-if="model.editing" >
+            <div class="modal-header">
+                <h4 class="modal-title">Event Editor</h4>
+            </div>
+            <div class="modal-body">
+                <p class="warning">{{model.warning}}</p>
+                <div class="form-group">
+                    <label>Title</label>
+                    <input  class="form-control" type="text" ng-model="model.event.title" ng-maxlength="200" />
+                </div>
+                <div class="form-group">
+                    <label>Date</label>
+                    <input class="form-control" type="date" ng-model="model.event.date" />
+                </div>
+                <div class="form-group">
+                    <label>Picture URL</label>
+                    <input class="form-control" type="url" ng-model="model.event.picture" />
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" type="text" ng-model="model.event.description" ng-maxlength="300" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button ng-click="actions.close()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button ng-click="actions.save()" type="button" class="btn btn-primary">Save Event</button>
+            </div>
+        </div>
     </div>
-
-    <div ng-if="model.editing" >
-        <input class="title" type="text" ng-model="model.event.title" ng-maxlength="200" />
-        <input class="date" type="date" ng-model="model.event.date" />
-        <input class="imageUrl" type="url" ng-model="model.event.picture" />
-        <textarea class="desc" type="text" ng-model="model.event.desc" ng-maxlength="300" />
-        <div ng-click="actions.save()" class="edit">save</div>
-    </div>
-
-    <div ng-click="actions.close()" class="close">x</div>
-
 </div>

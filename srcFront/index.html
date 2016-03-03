@@ -4,18 +4,31 @@
     <meta charset="utf-8">
     <title>EventsManager</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <script src="app.js"></script>
 </head>
 <body ng-app="app">
-<div class="screen" ng-controller="main:controller">
-    <h1 ng-click="actions.openEvent()">event manager</h1>
-    <input class="search" type="text" ng-model="model.search" ng-maxlength="200" />
-    <button ng-click="actions.newEvent()">create event</button>
-    <ul class="thread" >
-        <event ng-repeat="event in model.thread | filterEvent:model.search"
-               event="event" open="actions.openEvent" remove="actions.removeEvent" >
-        </event>
-    </ul>
+<div class="container" ng-controller="main:controller">
+    <div class="panel panel-default ">
+        <div class="panel-heading">
+                <div class="navbar-brand" >Event manager</div>
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-form navbar-left">
+                        <input class="search form-control" type="text" ng-model="model.search" ng-maxlength="200" placeholder="Search" />
+                        <button class="btn btn-default" ng-click="actions.newEvent()">create event</button>
+                        <button class="btn btn-default" ng-click="actions.updateList()">refresh</button>
+                    </div>
+                </div>
+        </div>
+        <div class="panel-body">
+            <ul class="thread list-group" >
+                <event ng-repeat="event in model.thread | filterEvent:model.search"
+                       event="event" open="actions.openEvent" remove="actions.removeEvent">
+                </event>
+            </ul>
+        </div>
+    </div>
     <eventdetail ng-if="model.openedEvent"
                  event="model.openedEvent"
                  save="actions.saveEvent"

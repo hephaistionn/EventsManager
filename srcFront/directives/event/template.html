@@ -1,8 +1,16 @@
-<li ng-class="['event', event.id]">
-    <div class="remove" ng-click="remove(event.id)">remove</div>
-    <div ng-click="open(event.id)">
-        <h2>{{event.title}}</h2>
-        <span ng-bind="event.date | date:'d-MMMM-yyyy'"></span>:
-        <img ng-src="{{event.picture}}">
+<div class="panel panel-primary" ng-class="['event', event.id]">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">{{event.title}}</h3>
+         :
+        <span class="" ng-bind="event.date | date:'d-MMMM-yyyy'"></span>
+        <button class=" close pull-right" ng-click="remove(event.id)"><span aria-hidden="true">x</span></button>
     </div>
-</li>
+
+    <div class="panel-body clickable"  ng-click="open(event.id)">
+        <div class="row">
+            <img class="img-rounded pull-left" ng-src="{{event.picture}}">
+            <h1 class="title">{{event.title}}</h1>
+        </div>
+    </div>
+</div>
