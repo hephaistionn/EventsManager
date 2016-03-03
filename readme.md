@@ -20,17 +20,25 @@ $ gulp build
 $ gulp serve
 ```
 
+opens this page : [http://localhost:3000/]
+
 # Tests
 
-You need Karma installed globally:
+Tests are managed by Protractor. <br />
+Protractor needs to [Java Development Kit (JDK)] for working. <br />
+You need jasmine and protractor installed globally: <br />
 ```sh
-$ npm install -g karma-cli
+$ npm install -g jasmine
+$ npm install -g protractor
 ```
 
 Launch functional tests.
 ```sh
-$ karma start karma.conf.js
+$ webdriver-manager update
+$ webdriver-manager start  //test server
+$ protractor protractor.conf.js
 ```
+
 
 License
 ----
