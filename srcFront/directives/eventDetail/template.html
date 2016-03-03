@@ -1,0 +1,21 @@
+<div ng-class="['eventDetail', model.event.id]" >
+
+    <div ng-if="!model.editing" >
+        <h2>{{model.event.title}}</h2>
+        <span class="date" ng-bind="event.date | date:'d-MMMM-yyyy'"></span>
+        <img ng-src="{{model.event.picture}}">
+        <div  class="desc">{{model.event.desc}}</div>
+        <div ng-click="actions.edit()" class="edit">edit</div>
+    </div>
+
+    <div ng-if="model.editing" >
+        <input class="title" type="text" ng-model="model.event.title" ng-maxlength="200" />
+        <input class="date" type="date" ng-model="model.event.date" />
+        <input class="imageUrl" type="url" ng-model="model.event.picture" />
+        <textarea class="desc" type="text" ng-model="model.event.desc" ng-maxlength="300" />
+        <div ng-click="actions.save()" class="edit">save</div>
+    </div>
+
+    <div ng-click="actions.close()" class="close">x</div>
+
+</div>

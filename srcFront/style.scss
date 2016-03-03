@@ -1,0 +1,13 @@
+/* global variables */
+$background-color: #A5A5A5;
+$dark-border: solid 1px black;
+
+@import "directives/event/style";
+@import "mainScreen/style";
+
+.screen {
+  background: $background-color;
+  width: 800px;
+  margin: 50px auto;
+  font-family: sans-serif;
+}

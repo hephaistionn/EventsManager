@@ -1,0 +1,8 @@
+<li ng-class="['event', event.id]">
+    <div class="remove" ng-click="remove(event.id)">remove</div>
+    <div ng-click="open(event.id)">
+        <h2>{{event.title}}</h2>
+        <span ng-bind="event.date | date:'d-MMMM-yyyy'"></span>:
+        <img ng-src="{{event.picture}}">
+    </div>
+</li>
