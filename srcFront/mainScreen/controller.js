@@ -54,7 +54,6 @@ module.exports = app => {
                         $scope.actions.updateList();
                     });
             }
-
         };
 
         $scope.actions.updateList();

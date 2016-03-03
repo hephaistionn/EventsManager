@@ -36,8 +36,6 @@ module.exports = app => {
 
                         $scope.model.editing = false;
                         $scope.save();
-
-
                     },
                     close: $scope.close
                 };

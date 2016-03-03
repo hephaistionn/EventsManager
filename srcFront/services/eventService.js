@@ -78,7 +78,6 @@ module.exports = app => {
             }, function (data) {
                 console.log('bad request');
             });
-
         };
 
     }]);
