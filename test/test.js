@@ -53,7 +53,7 @@ describe('Protractor Demo App', function() {
             });
         });
         setTimeout(() =>{
-            expect(titles).not.toEqual(-1);
+            expect(titles.indexOf('titleA')).not.toEqual(-1);
             cb()
         }, 500);
     });
