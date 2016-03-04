@@ -1,5 +1,5 @@
 # EventManager
-This app is a events managers.
+This app is a events manager.
 
 # Tech
 * [Angular] - HTML enhanced for web apps!
@@ -25,7 +25,7 @@ opens this page : [http://localhost:3000/]
 # Tests
 
 Tests are managed by Protractor. <br />
-Protractor needs to [Java Development Kit (JDK)] for working. <br />
+Protractor needs [Java Development Kit (JDK)] for working. <br />
 You need jasmine and protractor installed globally: <br />
 ```sh
 $ npm install -g jasmine
