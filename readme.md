@@ -17,7 +17,7 @@ $ git clone https://github.com/hephaistionn/EventsManager.git
 $ cd EventsManager
 $ npm install
 $ gulp build
-$ gulp serve
+$ node server.js
 ```
 
 opens this page : [http://localhost:3000/]
